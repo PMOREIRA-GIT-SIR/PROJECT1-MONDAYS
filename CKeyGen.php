@@ -25,6 +25,7 @@ class CKeyGen {
 		$extractorS = new CKeyExtractor(CKeyGen::NS, CKeyGen::MINS, CKeyGen::MAXS);
 		$this->stars = $extractorS ->extractor();
 	}
+	
 	function key2HTML() {
 		$html = "";
 		// first list - numbers
@@ -42,6 +43,42 @@ class CKeyGen {
 		}
 		$html .= "</ul>";
 		return $html;
+		
+	} 
+	function key2XHTML() {
+		$xhtml = new SimpleXMLElement("<div/>");
+		// first list - numbers
+		$uln = $xhtml->addChild("ul");
+		$uln->addAttribute("class","numbers");
+		// iterate over all numbers
+		foreach($this->numbers as $thenumber) {
+			$uln->addChild("li",$thenumber);
+		}
+		$uls = $xhtml->addChild("ul");
+		$uls->addAttribute("class","stars");
+		// iterate over all numbers
+		foreach($this->stars as $thestar) {
+			$uls->addChild("li",$thestar);
+		}
+		
+		return $xhtml->asXML();
+		
+	} 
+	function key2XML() {
+		$xml = new SimpleXMLElement("<key/>");
+		// first list - numbers
+		$uln = $xml->addChild("numbers");
+		// iterate over all numbers
+		foreach($this->numbers as $thenumber) {
+			$uln->addChild("num",$thenumber);
+		}
+		$uls = $xml->addChild("stars");
+		// iterate over all numbers
+		foreach($this->stars as $thestar) {
+			$uls->addChild("num",$thestar);
+		}
+		
+		return $xml->asXML();
 		
 	} 
 	

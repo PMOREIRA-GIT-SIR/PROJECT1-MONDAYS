@@ -13,7 +13,7 @@ $kg = new CKeyGen();
 		echo $kg->key2HTML();
 		echo "<hr/>"; 
 		$kg->regenerate();
-		echo $kg->key2HTML();
+		echo $kg->key2XHTML();
 		?>
 	</body>
 </html>
