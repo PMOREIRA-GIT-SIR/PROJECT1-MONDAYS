@@ -11,8 +11,8 @@ class CKeyGen {
 	const MAXX = 11;		// max star
 	
 	
-	public $numbers;
-	public $stars;
+	public $numbers;		// array with the numbers
+	public $stars;		// array with the stars
 	
 	// constructor
 	public function __construct() {	
@@ -43,12 +43,15 @@ class CKeyExtractor {
 			$bagofnumbers[$i] = $i + $this->_min;
 		}
 		for ($k=0; $k<$this->_nel; $k++) {
-			$idx = rand(0,count($bagofnumbers)-1);
+			 $idx = rand(0,count($bagofnumbers)-1);
 			 $key[] = $bagofnumbers[$idx];
 			 array_splice($bagofnumbers,$idx,1);
 		}
-		var_dump($key);
-
+		sort($key);
+		//var_dump($key);
+		return $key;
+		
+		
 	}
 	
 }
