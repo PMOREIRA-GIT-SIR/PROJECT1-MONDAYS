@@ -15,9 +15,15 @@ class CKeyGen {
 	public $stars;		// array with the stars
 	
 	// constructor
-	public function __construct() {	
-		echo "<p> number of numbers : ".CKeyGen::NN."</p>";
-		$extractor = new CKeyExtractor(CKeyGen::NN, CKeyGen::MINN, CKeyGen::MAXN);
+	public function __construct() {
+		$this->regenerate();
+	}
+	
+	public function regenerate() {
+		$extractorN = new CKeyExtractor(CKeyGen::NN, CKeyGen::MINN, CKeyGen::MAXN);
+		$this->numbers = $extractorN -> extractor();
+		$extractorS = new CKeyExtractor(CKeyGen::NS, CKeyGen::MINS, CKeyGen::MAXS);
+		$this->stars = $extractorS ->extractor();
 	}
 	
 }
@@ -33,7 +39,7 @@ class CKeyExtractor {
 		$this->_nel = $nel;
 		$this->_min = $min;
 		$this->_max = $max;
-		$this->extractor();
+		//$this->extractor();
 	}
 	
 	function extractor() {
