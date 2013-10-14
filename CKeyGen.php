@@ -25,6 +25,25 @@ class CKeyGen {
 		$extractorS = new CKeyExtractor(CKeyGen::NS, CKeyGen::MINS, CKeyGen::MAXS);
 		$this->stars = $extractorS ->extractor();
 	}
+	function key2HTML() {
+		$html = "";
+		// first list - numbers
+		$html .= "<ul class='numbers'>";
+		// iterate over all numbers
+		foreach($this->numbers as $thenumber) {
+			$html .= "<li>".$thenumber."</li>";
+		}
+		$html .= "</ul>";
+		
+		$html .= "<ul class='stars'>";
+		// iterate over all stars
+		foreach($this->stars as $thestar) {
+			$html .= "<li>".$thestar."</li>";
+		}
+		$html .= "</ul>";
+		return $html;
+		
+	} 
 	
 }
 
@@ -56,12 +75,8 @@ class CKeyExtractor {
 		sort($key);
 		//var_dump($key);
 		return $key;
-		
-		
 	}
 	
 }
-
-$keygenerator = new CKeyGen();
-
+//$keygenerator = new CKeyGen();
 ?>
