@@ -8,7 +8,7 @@ class CKeyGen {
 	const MAXN = 50;		// max number
 	
 	const MINS = 1;		// min star
-	const MAXX = 11;		// max star
+	const MAXS = 11;		// max star
 	
 	
 	public $numbers;		// array with the numbers
