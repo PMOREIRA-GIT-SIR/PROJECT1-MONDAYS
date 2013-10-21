@@ -64,6 +64,12 @@ class CKeyGen {
 		return $xhtml->asXML();
 		
 	} 
+	
+	public function KeyAsJSON() {
+		return json_encode($this);
+	}
+		
+		
 	function key2XML() {
 		$xml = new SimpleXMLElement("<key/>");
 		// first list - numbers
