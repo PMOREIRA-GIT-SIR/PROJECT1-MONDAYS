@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<script src="jQuery/jquery-1.10.2.js"></script>
+		<script>
+
+			$(document).ready( function () {
+				var str = "network";
+				$("#divbutton input").click( function () {
+					alert('Hello'+str);
+				});
+				
+				$("#thespecialone").click( function () {
+					var newb = $("<input/>");
+					newb.attr("type","button");
+					newb.attr("value","new");
+					newb.click(function () {alert(":)")});
+					$("body").append(newb);
+				}
+				)
+			});
+
+		</script>
+	</head>
+	<body>
+		<div id="divbutton">
+			<input type="button" value="say hello"/>
+			<input type="button" value="say hello"/>
+			<input id="thespecialone" type="button" value="say hello"/>
+			<input type="button" value="say hello"/>
+			<input type="button" value="say hello"/>
+			<input type="button" value="say hello"/>
+			<p>2013</p>
+		</div>
+	</body>
+	
+</html>

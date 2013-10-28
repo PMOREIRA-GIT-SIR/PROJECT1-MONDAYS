@@ -1,7 +1,7 @@
 <?
 // request the server for a key
 $mykey1 = file_get_contents("http://alunos.estg.ipvc.pt/~pmoreira/KEYSERVER/KeyServerXML.php");
-$mykey2 = file_get_contents("http://alunos.estg.ipvc.pt/~pmoreira/KEYSERVER/KeyServerXML.php");
+$mykey2 = file_get_contents("http://localhost/SIR1213/EM_KEYGEN_MON/KeyServerXML.php");
 
 
 

@@ -70,7 +70,7 @@ class CKeyGen {
 	}
 		
 		
-	function key2XML() {
+	public function key2XML() {
 		$xml = new SimpleXMLElement("<key/>");
 		// first list - numbers
 		$uln = $xml->addChild("numbers");
