@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<title>Euro Millions</title> 
+		<link rel="stylesheet" href="em_style.css"/>
+		<script src="jQuery/jquery-1.10.2.js"></script>
+		<script>
+		// runs when document is loaded
+			$(document).ready( function () {
+				// make the revbutton clickable functional
+				$("#getkeyb").click( function () {
+					// make the ajax request
+					$.ajax(
+						{
+							dataType : "json",
+							// set the url to contact
+							url: "http://alunos.estg.ipvc.pt/~pmoreira/KEYSERVER/KeyServerJSON.php",
+							// define the function that will run when 
+							// the response is available
+							success : function (key) { 
+								var newkeydiv = $("<div/>");
+								var newulnumbers = $("<ul/>");
+								newulnumbers.attr("class","numbers");
+								for(var n=0; n<key.numbers.length ; n++) {
+									var nli = $("<li/>");
+									nli.html(key.numbers[n]);
+									newulnumbers.append(nli);
+								}
+								newkeydiv.append(newulnumbers);
+								var newulstars = $("<ul/>");
+								newulstars.attr("class","stars");
+								for(var n=0; n<key.stars.length ; n++) {
+									var nli = $("<li/>");
+									nli.html(key.stars[n]);
+									newulstars.append(nli);
+								}
+								newkeydiv.append(newulstars);
+								$("#output").append(newkeydiv);
+								}
+						}
+					)
+				});	
+			});
+	</script>
+	</head>
+	<body>
+		
+		<input type="button" id="getkeyb" value="get a key"/>
+		
+		<div id="output">
+			
+		</div>
+		 
+	</body>
+	
+</html>

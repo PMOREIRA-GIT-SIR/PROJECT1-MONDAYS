@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<script src="jQuery/jquery-1.10.2.js"></script>
+		<script>
+		
+			// runs when document is loaded
+			$(document).ready( function () {
+				// make the revbutton clickable functional
+				$("#revbutton").click( function () {
+					// get the str at the input field
+					var str2reverse = $("#str").val();
+					// make the ajax request
+					$.ajax(
+						{
+							// set the url to contact
+							url: "StrRevServer.php",
+							// set data to send to the server
+							data : {
+									inputstr : str2reverse
+								  },
+							// define the function that will run when 
+							// the response is available
+							success : function (resp) { 
+								newp = $("<p/>");
+								newp.html(resp);
+								$("#outputdiv").append(newp);
+								//alert(resp);
+								}
+						}
+					)
+				});	
+			});
+		</script>
+	</head>
+	<body>
+		<div id="inputdiv">
+			string to reverse: <input type="text" id="str"/>
+			<input type="button" value="reverse" id="revbutton">
+		</div>
+		<div id="outputdiv">
+			
+		</div>
+	</body>
+</html>
